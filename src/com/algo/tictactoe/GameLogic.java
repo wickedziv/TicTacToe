@@ -56,15 +56,15 @@ public class GameLogic {
 		currentState = GameState.PLAYING;
 	}
 	
+	@SuppressWarnings("resource")
 	public void playerMove(PlayerBoard player){
 		Scanner scnr = new Scanner(System.in);
 		boolean isValid = false;
 		while(!isValid){
-			if(player.equals(CROSS))
+			if(player.equals(PlayerBoard.CROSS))
 				System.out.println("Player X - your turn. Enter a row(1-3) and a column(1-3)");
 			else
 				System.out.println("Player O - your turn. Enter a row(1-3) and a column(1-3)");
-			
 			int row = scnr.nextInt();
 			int col = scnr.nextInt();
 			if(row > 0 && row <= ROWS && col > 0 && col <= COLS){
@@ -120,6 +120,5 @@ public class GameLogic {
 		else
 			return col+row+2;
 	}
-	
 
 }
