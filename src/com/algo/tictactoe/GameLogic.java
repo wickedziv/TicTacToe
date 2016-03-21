@@ -79,8 +79,10 @@ public class GameLogic {
 	}
 		
 	public void switchPlayer(PlayerBoard player){
-		if(player!=null)
+		if(player!=null){
 			currentPlayer = (player.equals(PlayerBoard.CROSS)) ? PlayerBoard.NOUGHT : PlayerBoard.CROSS;
+			System.out.println("It's " + player.toString() + " turn now.");
+		}
 		else
 			System.out.println("Cant switch player");
 	}
@@ -88,7 +90,7 @@ public class GameLogic {
 	public void updatePlayer(PlayerBoard player){
 		if(isWinner(player)){
 			currentState = player.equals(PlayerBoard.CROSS) ?  GameState.CROSS_WON :  GameState.NOUGHT_WON;
-			System.out.println(player + " Has won the game! GJ");
+			System.out.println(player.toString() + " Has won the game! GJ");
 		}
 		else if (isDraw()){
 			currentState = GameState.DRAW;
